@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - The Cat's Bark</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/the-cats-bark-logo.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="contact-container">
+        <h1>GET IN<br />TOUCH!</h1>
+        <form id="contact-form" action="submit.php" method="POST">
+          <div class="input-row">
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="First Name"
+              required
+            />
+            <input
+              type="text"
+              id="last-name"
+              name="last-name"
+              placeholder="Last Name"
+              required
+            />
+          </div>
+
+          <div class="input-row">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              placeholder="Phone"
+              required
+            />
+          </div>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="How can we help you?"
+            required
+          ></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section class="store-phone-email">
+        <h2>Phone</h2>
+        <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;
+        <a href="tel:5196421130">519-642-1130</a>
+        <h2>Email</h2>
+        <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
+        <a href="mailto:thecatsbark1@gmail.com">thecatsbark1@gmail.com</a>
+      </section>
+      <section id="store-info">
+        <h2>Store Location:</h2>
+        <address>572 Dundas St, London, ON N6B 1W8</address>
+
+        <h2>Business Hours:</h2>
+        <table>
+          <tr>
+            <td>Monday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>10:00 AM - 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td><span>Closed</span></td>
+          </tr>
+        </table>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
