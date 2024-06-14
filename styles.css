@@ -489,7 +489,7 @@ button[type="submit"] {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 }
 .map-container iframe {
   position: absolute;
@@ -501,11 +501,11 @@ button[type="submit"] {
 }
 
 /* Media Queries for Tablet */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+@media screen and (min-width: 768px) {
 }
 
 /* Media Queries for Desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (orientation: landscape) {
   * {
     font-family: "Lato", sans-serif;
     font-size: 18px;
@@ -744,6 +744,7 @@ button[type="submit"] {
     height: 500px;
     padding-bottom: 0;
   }
+
   .map-container iframe {
     width: 900px;
     height: 500px;
