@@ -20,62 +20,99 @@
   <body>
     <header></header>
     <main>
-      <section class="contact-container">
-        <h1>GET IN<br />TOUCH!</h1>
-        <form id="contact-form" action="submit.php" method="POST">
-          <div class="input-row">
-            <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              placeholder="First Name"
-              required
-            />
-            <input
-              type="text"
-              id="last-name"
-              name="last-name"
-              placeholder="Last Name"
-              required
+      <section class="contact-container fade-in">
+        <div class="row">
+          <div class="column contact-image">
+            <img
+              src="images/contact-us-cat.jpg"
+              alt="Kitten looking up at its paw on a aqua-blue background"
             />
           </div>
+          <div class="column" style="flex-grow: 2">
+            <div class="contact-form-title">
+              <h1>GET IN<br />TOUCH!</h1>
+              <h3>
+                Fill out the form below <br />and we'll get back to you<br />
+                as soon as possible.
+              </h3>
+            </div>
+            <form
+              id="contact-form"
+              action="submit.php"
+              method="POST"
+              class="contact-form"
+            >
+              <div class="input-row">
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  placeholder="Last Name"
+                  required
+                />
+              </div>
 
-          <div class="input-row">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              required
-            />
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              placeholder="Phone"
-              required
-            />
+              <div class="input-row">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="Phone"
+                  required
+                />
+              </div>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="How can we help you?"
+                required
+              ></textarea>
+              <div class="button-store-phone-email">
+                <button type="submit">Send message</button>
+                <section class="store-phone-email">
+                  <div>
+                    <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;
+                    <a href="tel:5196421130">519-642-1130</a>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
+                    <a href="mailto:thecatsbark1@gmail.com"
+                      >thecatsbark1@gmail.com</a
+                    >
+                  </div>
+                </section>
+              </div>
+            </form>
           </div>
-
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder="How can we help you?"
-            required
-          ></textarea>
-
-          <button type="submit">Submit</button>
-        </form>
+        </div>
       </section>
       <div class="store">
-        <section class="store-phone-email">
-          <h2>Phone</h2>
-          <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;
-          <a href="tel:5196421130">519-642-1130</a>
-          <h2>Email</h2>
-          <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
-          <a href="mailto:thecatsbark1@gmail.com">thecatsbark1@gmail.com</a>
+        <section class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5837.013943956291!2d-81.2330854!3d42.9886583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882ef20b87659c7b%3A0x69123b64e7561b7e!2s572%20Dundas%20St%2C%20London%2C%20ON%20N6B%201W8!5e0!3m2!1sen!2sca!4v1718386648486!5m2!1sen!2sca"
+            width="800"
+            height="500"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </section>
         <section class="store-info">
           <h2>Store Location:</h2>
