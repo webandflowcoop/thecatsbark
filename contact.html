@@ -38,10 +38,15 @@
             </div>
             <form
               id="contact-form"
-              action="submit.php"
-              method="POST"
+              action="https://api.web3forms.com/submit" method="POST"
               class="contact-form"
             >
+              <input type="hidden" name="access_key" value="417c756a-b2e9-41b8-bafd-977ba76ae8ed">
+              <input type="hidden" name="subject" value="Contact Form">
+              <input type="hidden" name="from_name" value="The Cat's Bark">
+              <input type="hidden" name="redirect" value="https://web3forms.com/success">
+              <input type="checkbox" name="botcheck" id="" style="display: none;">
+
               <div class="input-row">
                 <input
                   type="text"
@@ -72,7 +77,6 @@
                   id="phone"
                   name="phone"
                   placeholder="Phone"
-                  required
                 />
               </div>
 
