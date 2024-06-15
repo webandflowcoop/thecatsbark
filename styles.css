@@ -490,18 +490,22 @@ button[type="submit"] {
 }
 
 .map-container {
+  border: solid 1px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+
   position: relative;
-  width: 100%;
+  overflow: hidden;
+
+  width: 96%;
+  margin: auto;
   height: 0;
-  padding-bottom: 56.25%;
+  padding-bottom: 120%;
 }
+
 .map-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 /* Media Queries for Tablet */
@@ -749,10 +753,7 @@ button[type="submit"] {
     padding-bottom: 0;
   }
 
-  .map-container iframe {
-    width: 900px;
-    height: 500px;
-  }
+
 
   /*FOOTER*/
   footer {
