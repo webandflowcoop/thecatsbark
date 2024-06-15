@@ -19,10 +19,10 @@
   </head>
   <body>
     <header></header>
-    <main>
+    <main class="content">
       <section class="contact-container fade-in">
         <div class="row">
-          <div class="column contact-image">
+          <div class="column contact-image" style="flex-grow: 1">
             <img
               src="images/contact-us-cat.jpg"
               alt="Kitten looking up at its paw on a aqua-blue background"
@@ -30,10 +30,10 @@
           </div>
           <div class="column" style="flex-grow: 2">
             <div class="contact-form-title">
-              <h1>GET IN<br />TOUCH!</h1>
-              <h3>
+              <h1 style="margin-top:0" >GET IN<br />TOUCH!</h1>
+              <h3 style="margin-top:0">
                 Fill out the form below <br />and we'll get back to you<br />
-                as soon as possible.
+                as soon as possible
               </h3>
             </div>
             <form
@@ -83,18 +83,19 @@
                 placeholder="How can we help you?"
                 required
               ></textarea>
-              <div class="button-store-phone-email">
-                <button type="submit">Send message</button>
+
+              <div style="text-align: center;" >
+
+                <button style="width: 50%; margin: auto;" type="submit">Send message</button>
+
                 <section class="store-phone-email">
+                  <div>
+                    <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
+                    <a href="mailto:thecatsbark1@gmail.com">thecatsbark1@gmail.com</a>
+                  </div>
                   <div>
                     <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;
                     <a href="tel:5196421130">519-642-1130</a>
-                  </div>
-                  <div>
-                    <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
-                    <a href="mailto:thecatsbark1@gmail.com"
-                      >thecatsbark1@gmail.com</a
-                    >
                   </div>
                 </section>
               </div>
@@ -111,8 +112,8 @@
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </section>
         <section class="store-info">
           <h2>Store Location:</h2>

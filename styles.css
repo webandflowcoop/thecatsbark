@@ -35,6 +35,11 @@ button {
   transition: background-color 0.3s;
 }
 
+.content {
+  width: 80%;
+  margin: auto;
+}
+
 /* Animations*/
 .fade-in {
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -440,7 +445,6 @@ main {
 
 .store-phone-email h2 {
   font-size: 1.3em;
-  margin-top: 25px;
 }
 
 .store-phone-email > div > a {
@@ -450,7 +454,7 @@ main {
 }
 
 .store-phone-email {
-  margin: 45px 0px;
+  margin: 15px 0px;
 }
 
 .input-row {
@@ -651,7 +655,7 @@ button[type="submit"] {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 20px;
     margin-bottom: 50px;
   }
 
@@ -679,7 +683,7 @@ button[type="submit"] {
 
   .contact-container {
     max-width: none;
-    margin-top: 70px;
+    margin-top: 50px;
     padding-right: 0px;
   }
 
@@ -698,15 +702,15 @@ button[type="submit"] {
   }
 
   .contact-image {
-    display: flex;
     justify-content: flex-end;
     margin-right: 20px;
   }
 
   .column img {
-    max-width: 65%;
+    max-width: 100%;
+    width: auto;
     height: auto;
-    display: flex;
+    display: block;
     border-radius: 3px;
   }
 
