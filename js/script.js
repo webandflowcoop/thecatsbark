@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("header.html")
+  fetch("/includes/header.html")
     .then((response) => response.text())
     .then((data) => {
       document.querySelector("header").innerHTML = data;
@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
       updateActivePageIndicator();
     });
 
-  fetch("footer.html")
+  fetch("/includes/footer.html")
     .then((response) => response.text())
     .then((data) => {
       document.querySelector("footer").innerHTML = data;
     });
 
-  fetch("gallery.html")
+  fetch("/gallery/")
     .then((response) => response.text())
     .then((data) => {
       let slideIndex = 0;
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateActivePageIndicator() {
-  const currentPage = window.location.pathname.split("/").pop();
+  const currentPage = window.location.pathname;
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach((link) => {
@@ -72,7 +72,10 @@ function updateActivePageIndicator() {
   });
 
   navLinks.forEach((link) => {
-    if (link.getAttribute("href") === currentPage) {
+    if (
+      link.getAttribute("href") === currentPage ||
+      link.getAttribute("href") === currentPage + "/"
+    ) {
       link.classList.add("active");
     }
   });

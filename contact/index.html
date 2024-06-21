@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - The Cat's Bark</title>
-    <link rel="icon" type="image/x-icon" href="images/the-cats-bark-logo.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/images/the-cats-bark-logo.png"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -24,28 +28,42 @@
         <div class="row">
           <div class="column contact-image" style="flex-grow: 1">
             <img
-              src="images/contact-us-cat-mid-res.jpg"
+              src="/images/contact-us-cat-mid-res.jpg"
               alt="Kitten looking up at its paw on a aqua-blue background"
             />
           </div>
           <div class="column" style="flex-grow: 2">
             <div class="contact-form-title">
-              <h1 style="margin-top:0" >GET IN<br />TOUCH!</h1>
-              <h3 style="margin-top:0">
+              <h1 style="margin-top: 0">GET IN<br />TOUCH!</h1>
+              <h3 style="margin-top: 0">
                 Fill out the form below <br />and we'll get back to you<br />
                 as soon as possible
               </h3>
             </div>
             <form
               id="contact-form"
-              action="https://api.web3forms.com/submit" method="POST"
+              action="https://api.web3forms.com/submit"
+              method="POST"
               class="contact-form"
             >
-              <input type="hidden" name="access_key" value="d5d78298-9936-4513-8ca6-c370efbb3830">
-              <input type="hidden" name="subject" value="Contact Form">
-              <input type="hidden" name="from_name" value="The Cat's Bark">
-              <input type="hidden" name="redirect" value="https://web3forms.com/success">
-              <input type="checkbox" name="botcheck" id="" style="display: none;">
+              <input
+                type="hidden"
+                name="access_key"
+                value="d5d78298-9936-4513-8ca6-c370efbb3830"
+              />
+              <input type="hidden" name="subject" value="Contact Form" />
+              <input type="hidden" name="from_name" value="The Cat's Bark" />
+              <input
+                type="hidden"
+                name="redirect"
+                value="https://web3forms.com/success"
+              />
+              <input
+                type="checkbox"
+                name="botcheck"
+                id=""
+                style="display: none"
+              />
 
               <div class="input-row">
                 <input
@@ -88,14 +106,17 @@
                 required
               ></textarea>
 
-              <div style="text-align: center;" >
-
-                <button style="width: 50%; margin: auto;" type="submit">Send message</button>
+              <div style="text-align: center">
+                <button style="width: 50%; margin: auto" type="submit">
+                  Send message
+                </button>
 
                 <section class="store-phone-email">
                   <div>
                     <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;
-                    <a href="mailto:thecatsbark1@gmail.com">thecatsbark1@gmail.com</a>
+                    <a href="mailto:thecatsbark1@gmail.com"
+                      >thecatsbark1@gmail.com</a
+                    >
                   </div>
                   <div>
                     <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;
@@ -116,7 +137,8 @@
             style="border: 0"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            referrerpolicy="no-referrer-when-downgrade"
+          >
           </iframe>
         </section>
         <section class="store-info">
@@ -158,6 +180,6 @@
       </div>
     </main>
     <footer></footer>
-    <script src="script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>
