@@ -453,6 +453,10 @@ main {
   color: var(--secondary-color);
 }
 
+.store-phone-email > div > a > i {
+  color: var(--text-color);
+}
+
 .store-phone-email {
   margin: 15px 0px;
 }
@@ -752,8 +756,6 @@ button[type="submit"] {
     height: 500px;
     padding-bottom: 0;
   }
-
-
 
   /*FOOTER*/
   footer {
