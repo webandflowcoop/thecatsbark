@@ -23,11 +23,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("../images/dog-bone-faded.png");
-	background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position-x: center;
 	background-position-y: 20%;
 	background-size: 90%;
+}
+
+body.contact-body {
+  background-image: url("../images/dog-bone-faded.png");
+}
+
+body.home-body {
+  background-image: url("../images/dog-bone-faded.png");
 }
 
 button {
@@ -528,8 +535,12 @@ button[type="submit"] {
     font-size: 18px;
   }
 
-  body {
+  body.contact-body {
     background-position-y: 30%;
+  }
+
+  body.home-body {
+    background-position-y: 10rem;
   }
 
   main {
@@ -636,13 +647,14 @@ button[type="submit"] {
   }
 
   .hero-image-container {
-    height: 100vh;
-    display: flex;
+    padding-top: 10vh;
+    height: 30vh;
+    /* display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    background-color: rgb(250, 251, 253);
+    background-color: rgb(250, 251, 253); */
   }
 
   .pre-store-mission {
