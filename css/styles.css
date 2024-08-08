@@ -751,7 +751,7 @@ button[type="submit"] {
     width: auto;
     height: auto;
     display: block;
-    border-radius: 3px;
+    margin-top: 60px;
   }
 
   .contact-form {
