@@ -41,8 +41,24 @@ button {
 }
 
 /* Animations*/
-.fade-in {
+.fade-in-first {
   animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 0.2s
+}
+
+.fade-in-second {
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 1.2s
+}
+
+.fade-in-third {
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 2.4s
+}
+
+.fade-in-late {
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation-delay: 3s
 }
 
 /* ----------------------------------------------
@@ -249,11 +265,13 @@ main {
 .hero-image-container {
   max-width: 100vw;
   overflow: hidden;
+  display: flex;
 }
 
 .hero-text {
   text-align: center;
   padding: 20px;
+  flex: auto;
 }
 
 .pre-store-mission {
@@ -268,14 +286,13 @@ main {
   font-weight: 400;
 }
 
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 100px;
-}
-
 .text-over-image {
   display: none;
+}
+
+.hero-animation {
+  transform: scale(1.8);
+  margin-top: 4vh;
 }
 
 .reviews-container {
@@ -640,17 +657,15 @@ button[type="submit"] {
     left: 0;
   }
   .reviews-container {
-    padding: 100px 35px;
+    padding: 20px 35px;
   }
 
   .hero-image-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: row-reverse;
+    height: 40vh;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    background-color: rgb(250, 251, 253);
+    vertical-align: middle;
   }
 
   .pre-store-mission {
