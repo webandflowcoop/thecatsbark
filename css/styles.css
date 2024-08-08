@@ -23,11 +23,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-image: url("../images/dog-bone-faded.png");
-	background-repeat: no-repeat;
-  background-position-x: center;
-	background-position-y: 20%;
-	background-size: 90%;
 }
 
 button {
