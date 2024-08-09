@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateActivePageIndicator() {
-  const currentPage = window.location.pathname;
+  const currentPage = window.location.pathname.replace(/\/$/, "");
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach((link) => {
@@ -72,10 +72,8 @@ function updateActivePageIndicator() {
   });
 
   navLinks.forEach((link) => {
-    if (
-      link.getAttribute("href") === currentPage ||
-      link.getAttribute("href") === currentPage + "/"
-    ) {
+    const linkPath = link.getAttribute("href").replace(/\/$/, "");
+    if (linkPath === currentPage) {
       link.classList.add("active");
     }
   });
