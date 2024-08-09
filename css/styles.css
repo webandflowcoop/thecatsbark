@@ -137,7 +137,7 @@ nav a:not(.logo).active {
 }
 
 .top-nav {
-  min-height: 10vw;
+  min-height: 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -620,14 +620,10 @@ button[type="submit"] {
 
   .menu-item {
     padding: 10px 0px;
-    margin-right: 80px;
+    margin: 0px 50px;
     font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
-  }
-
-  .logo {
-    margin-right: 80px;
   }
 
   .logo img {
@@ -665,6 +661,7 @@ button[type="submit"] {
     bottom: -3px;
     left: 0;
   }
+
   .reviews-container {
     padding: 20px 35px;
   }
