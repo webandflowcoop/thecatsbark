@@ -143,7 +143,7 @@ nav a:not(.logo).active {
   align-items: center;
   padding: 10px;
   position: relative;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .menu {
@@ -263,6 +263,8 @@ main {
   max-width: 100vw;
   overflow: hidden;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .hero-text {
@@ -287,8 +289,13 @@ main {
   display: none;
 }
 
+.hero-animation-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-animation {
-  /* transform: scale(1.8); */
+  transform: scale(1.2);
   margin-top: 4vh;
 }
 
@@ -552,6 +559,19 @@ button[type="submit"] {
     margin: 50px auto 0;
     width: 50%;
   }
+
+  .hero-animation {
+    transform: scale(1.1);
+    margin-top: 4vh;
+  }
+
+  .pre-store-mission {
+    font-size: 3.5em;
+  }
+
+  .store-mission {
+    font-size: 2.5em;
+  }
 }
 
 /* Media Queries for Desktop */
@@ -667,15 +687,34 @@ button[type="submit"] {
   }
 
   .hero-image-container {
-    /* height: 40vh; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    vertical-align: middle;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    height: 55vh;
+    margin: 2em auto;
   }
 
   .hero-text {
-    margin-top: 5vh;
+    flex: 5;
+    text-align: end;
+    margin-left: 23vh;
+  }
+
+  .hero-animation-container {
+    flex: 4;
+    display: flex;
+    align-items: start;
+  }
+
+  .hero-animation {
+    max-width: 100%;
+    height: auto;
+    margin-top: 0;
   }
 
   .pre-store-mission {
