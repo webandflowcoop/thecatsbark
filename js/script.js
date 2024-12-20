@@ -61,6 +61,18 @@ document.addEventListener("DOMContentLoaded", function () {
         moveSlide(1);
       }, 3000);
     });
+
+  openModal();
+
+  const modal = document.getElementById("modal");
+  const closeModalButton = document.getElementById("closeModal");
+  closeModalButton.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
 });
 
 function updateActivePageIndicator() {
@@ -77,4 +89,12 @@ function updateActivePageIndicator() {
       link.classList.add("active");
     }
   });
+}
+
+function openModal() {
+  modal.classList.add("modal-open");
+}
+
+function closeModal() {
+  modal.classList.remove("modal-open");
 }
