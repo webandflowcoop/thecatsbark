@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 3000);
     });
 
-  openModal();
-
   const modal = document.getElementById("modal");
   const closeModalButton = document.getElementById("closeModal");
   closeModalButton.addEventListener("click", closeModal);
