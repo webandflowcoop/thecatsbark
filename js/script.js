@@ -12,13 +12,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
       updateActivePageIndicator();
+      updateCartCount();
     });
 
   fetch("/includes/footer.html")
     .then((response) => response.text())
     .then((data) => {
       document.querySelector("footer").innerHTML = data;
-  });
+    });
 });
 
 function updateActivePageIndicator() {
@@ -37,10 +38,14 @@ function updateActivePageIndicator() {
   });
 }
 
-function openModal() {
-  modal.classList.add("modal-open");
-}
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function closeModal() {
-  modal.classList.remove("modal-open");
+  const quantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+  const cartCount = document.querySelectorAll(".cart-count");
+
+  cartCount.forEach((element) => {
+    element.textContent = quantity;
+  });
 }
