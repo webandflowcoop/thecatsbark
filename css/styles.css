@@ -702,7 +702,7 @@ button[type="submit"] {
   }
 
   #address-info span {
-    margin-right: 25px;
+    margin: 0 15px;
   }
 
   #address-info span i {
@@ -712,7 +712,9 @@ button[type="submit"] {
 
   .top-nav {
     justify-content: space-around;
+    justify-content: space-between;
     min-height: 0;
+    padding: 10px 70px;
   }
 
   .menu {
@@ -731,7 +733,7 @@ button[type="submit"] {
 
   .menu-item {
     padding: 10px 0px;
-    margin: 0px 50px;
+    margin: 0px 25px;
     font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
