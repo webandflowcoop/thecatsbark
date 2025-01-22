@@ -319,8 +319,22 @@ footer nav {
 
 .copyright {
   text-align: center;
-  font-weight: 300;
+  }
+
+.copyright a {
+  color: var(--secondary-color);
+  text-decoration: none;
   font-size: smaller;
+}
+
+.copyright a:hover {
+  color: var(--primary-color);
+}
+
+.copyright span {
+  color: #a9a9a9;
+  font-size: smaller;
+  font-weight: 300;
 }
 
 /* INDEX */
