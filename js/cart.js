@@ -1,3 +1,8 @@
+/*
+  URL
+  ?thank_you=&transactionId=<value>&orderId=<value>
+*/
+
 function renderCart() {
   const cartContainer = document.getElementById("cart-container");
 
@@ -6,7 +11,12 @@ function renderCart() {
   if (cart.length === 0) {
     cartContainer.innerHTML = `
         <div class="text-center">
-          <h3>Your cart is empty!</h3>
+             <img
+              src="/images/empty-cart.png"
+              alt="Smilling cat inside of shopping cart with 0 items"
+              class="empty-cart-image"
+            />
+            <br/>
           <a href="/products" class="btn btn-primary mt-3">Continue Shopping</a>
         </div>
       `;
@@ -22,12 +32,14 @@ function renderCart() {
         <div class="cart-item">
           <img src="${item.image}" alt="${item.name}" class="cart-item-image">
           <div class="cart-item-details">
-            <h5>${item.name}</h5>
+            <h5>${item.name} - <small>${item.variation_name}</small></h5>
             <p>Price: $${item.price}</p>
             <p>Quantity: 
               <input type="number" class="quantity-input" data-id="${
                 item.id
-              }" value="${item.quantity}" min="1">
+              }" data-inventory="${item.inventory}" value="${
+          item.quantity
+        }" min="1" max="${item.inventory}">
             </p>
             <p>Subtotal: $${(item.price * item.quantity).toFixed(2)}</p>
             <button class="btn remove remove-button" data-id="${
@@ -66,14 +78,18 @@ function renderCart() {
                   <img src="${item.image}" alt="${
                 item.name
               }" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
-                  <span>${item.name}</span>
+                  <span>${item.name} - <small>${
+                item.variation_name
+              }</small></span>
                 </div>
               </td>
               <td class="align-middle">$${item.price}</td>
               <td class="align-middle">
                 <input type="number" class="form-control form-control-sm quantity-input" data-id="${
                   item.id
-                }" value="${item.quantity}" min="1">
+                }" data-inventory="${item.inventory}" value="${
+                item.quantity
+              }" min="1" max="${item.inventory}">
               </td>
               <td class="align-middle" >$${(item.price * item.quantity).toFixed(
                 2
@@ -91,14 +107,20 @@ function renderCart() {
       </table>
       <div class="text-end mt-3">
         <h5>Total: $${calculateTotal(cart).toFixed(2)}</h5>
-        <button id="checkout-btn" class="btn btn-success mt-3 px-4">Reserve</button>
+        <button id="checkout-btn" class="btn btn-success mt-3 px-4">Checkout</button>
       </div>
     `;
   }
+
   document.querySelectorAll(".quantity-input").forEach((input) => {
     input.addEventListener("change", (event) => {
+      console.log(event);
       const itemId = event.target.getAttribute("data-id");
+      const maxInventory = event.target.getAttribute("data-inventory");
       const newQuantity = parseInt(event.target.value);
+      if (parseInt(input.value, 10) > maxInventory) {
+        event.target.value = maxInventory;
+      }
       updateCartItem(itemId, newQuantity);
     });
   });
@@ -113,53 +135,29 @@ function renderCart() {
   const checkoutButton = document.getElementById("checkout-btn");
   if (checkoutButton) {
     checkoutButton.addEventListener("click", () => {
-      openModal();
+      const userConfirmed = confirm(
+        "You will be redirected to an external Square checkout page to complete your payment. Do you wish to proceed?" // Add that they woill b redirected to a external square site for payment processing
+      );
+
+      if (!userConfirmed) {
+        return;
+      }
+
+      fetch("http://localhost:5001/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(cart),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          console.log("Checkout URL:", data.checkout_url);
+          window.location.href = data.checkout_url;
+          clearCart();
+        })
+        .catch((error) => console.error("Error:", error));
     });
   }
-
-  const modal = document.getElementById("modal");
-
-  const closeModalButton = document.getElementById("closeModal");
-  closeModalButton.addEventListener("click", closeModal);
-  modal.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      closeModal();
-    }
-  });
-
-  document
-    .getElementById("checkout-form")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const userName = document.getElementById("name").value;
-      const userEmail = document.getElementById("email").value;
-      const userPhone = document.getElementById("phone").value;
-
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      const emailContent = `
-    <h2>New Order</h2>
-    <p><strong>Name:</strong> ${userName}</p>
-    <p><strong>Email:</strong> ${userEmail}</p>
-    <p><strong>Phone:</strong> ${userPhone}</p>
-    <h3>Order Details:</h3>
-    <ul>
-      ${cart
-        .map(
-          (item) =>
-            `<li>${item.name} - $${item.price} x ${item.quantity} = $${(
-              item.price * item.quantity
-            ).toFixed(2)}</li>`
-        )
-        .join("")}
-    </ul>
-    <h4>Total: $${calculateTotal(cart).toFixed(2)}</h4>
-    <p><strong>Note:</strong> This is a pick-up only order. Payment will be made in-store.</p>
-  `;
-
-      alert(emailContent);
-    });
 }
 
 function calculateTotal(cart) {
@@ -186,12 +184,10 @@ function removeFromCart(itemId) {
   updateCartCount();
 }
 
-function openModal() {
-  modal.classList.add("modal-open");
-}
-
-function closeModal() {
-  modal.classList.remove("modal-open");
+function clearCart() {
+  localStorage.removeItem("cart");
+  updateCartCount();
+  renderCart();
 }
 
 function setupCartRendering() {

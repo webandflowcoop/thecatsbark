@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       updateActivePageIndicator();
       updateCartCount();
+      confirmationModal();
     });
 
   fetch("/includes/footer.html")
@@ -48,4 +49,28 @@ function updateCartCount() {
   cartCount.forEach((element) => {
     element.textContent = quantity;
   });
+}
+
+function confirmationModal() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const thankYouFlag = urlParams.has("transactionId");
+
+  if (urlParams && thankYouFlag) {
+    const modal = document.getElementById("thank-you-modal");
+    const closeButton = document.querySelector(".close-btn");
+
+    if (thankYouFlag) {
+      modal.style.display = "flex";
+    }
+
+    closeButton.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
 }

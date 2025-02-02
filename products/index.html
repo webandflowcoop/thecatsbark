@@ -30,7 +30,52 @@
     <header></header>
     <main class="content">
       <div class="container py-4">
-        <h1 class="text-center mb-4">Products</h1>
+        <div class="container">
+          <div class="row g-3 m-4">
+            <div class="col-12 col-md-4">
+              <select id="category" class="form-select">
+                <option value="">All Categories</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4">
+              <select id="sort" class="form-select">
+                <option selected>Sort by</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4">
+              <input
+                id="search"
+                type="text"
+                class="form-control"
+                placeholder="Search products..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="d-flex justify-content-between align-items-center m-5">
+          <select id="category" class="form-select w-25">
+            <option value="">All Categories</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+          </select>
+          <select id="sort" class="form-select w-25">
+            <option selected>Sort by</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+          </select>
+          <input
+            id="search"
+            type="text"
+            class="form-control w-25"
+            placeholder="Search products..."
+          />
+        </div> -->
+
         <section id="products-container" class="row g-4"></section>
       </div>
     </main>
