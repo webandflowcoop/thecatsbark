@@ -1,8 +1,3 @@
-/*
-  URL
-  ?thank_you=&transactionId=<value>&orderId=<value>
-*/
-
 function renderCart() {
   const cartContainer = document.getElementById("cart-container");
 
@@ -150,10 +145,7 @@ function renderCart() {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          console.log("Checkout URL:", data.checkout_url);
           window.location.href = data.checkout_url;
-          clearCart();
         })
         .catch((error) => console.error("Error:", error));
     });
@@ -205,7 +197,6 @@ function setupCartRendering() {
   window.addEventListener("resize", handleResize);
   renderCart();
 }
-
 setupCartRendering();
 
 window.addEventListener("load", renderCart);

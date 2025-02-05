@@ -21,7 +21,7 @@ fetch("http://localhost:5001/api/search/products")
           variation_id: variation.id,
           variation_name: variation.item_variation_data.name,
           price: price,
-          image: variation.images?.[0]?.url || "/images/placeholder.png", // TODO: This [0] is dangerous
+          image: variation.images?.[0]?.url || "/images/placeholder.png",
           categories: productGroup.categories || [],
           inventory: variation.inventory,
           brand: brand,
@@ -41,11 +41,11 @@ fetch("http://localhost:5001/api/search/products")
   })
   .catch((error) => {
     console.error("Error fetching products:", error);
-  })
-  .finally(console.log(products));
+  });
 
 function renderProducts(products) {
   const productsContainer = document.getElementById("products-container");
+
   productsContainer.innerHTML = "";
 
   if (products.length === 0) {

@@ -53,19 +53,17 @@ function updateCartCount() {
 
 function confirmationModal() {
   const urlParams = new URLSearchParams(window.location.search);
-  const thankYouFlag = urlParams.has("transactionId");
-
-  if (urlParams && thankYouFlag) {
+  if (urlParams.has("transactionId")) {
+    localStorage.removeItem("cart");
+    updateCartCount()
     const modal = document.getElementById("thank-you-modal");
+
     const closeButton = document.querySelector(".close-btn");
-
-    if (thankYouFlag) {
-      modal.style.display = "flex";
-    }
-
     closeButton.addEventListener("click", function () {
       modal.style.display = "none";
     });
+
+    modal.style.display = "flex";
 
     window.addEventListener("click", function (event) {
       if (event.target === modal) {
