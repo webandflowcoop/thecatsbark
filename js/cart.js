@@ -139,16 +139,26 @@ function renderCart() {
         return;
       }
 
+      // fetch("https://tcb-backend-05330ab42436.herokuapp.com/api/orders")
       fetch("http://localhost:5001/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cart),
       })
-        .then((response) => response.json())
+        .then(async (response) => {
+          if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error || "Something went wrong");
+          }
+          return response.json();
+        })
         .then((data) => {
           window.location.href = data.checkout_url;
         })
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => {
+          console.error("Checkout Error:", error.message);
+          window.location.href = "/error/";
+        });
     });
   }
 }
