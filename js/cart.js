@@ -25,7 +25,7 @@ function renderCart() {
       .map(
         (item) => `
         <div class="cart-item">
-          <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-image" loading="lazy">
           <div class="cart-item-details">
             <h5>${item.name} - <small>${item.variation_name}</small></h5>
             <p>Price: $${item.price}</p>
@@ -72,7 +72,7 @@ function renderCart() {
                 <div class="d-flex align-items-center">
                   <img src="${item.image}" alt="${
                 item.name
-              }" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+              }" class="me-3" style="width: 50px; height: 50px; object-fit: cover;" loading="lazy">
                   <span>${item.name} - <small>${
                 item.variation_name
               }</small></span>
