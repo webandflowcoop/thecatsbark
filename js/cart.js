@@ -108,16 +108,16 @@ function renderCart() {
   }
 
   document.querySelectorAll(".quantity-input").forEach((input) => {
-["change", "blur"].forEach((eventType) => {
-    input.addEventListener(eventType, (event) => {
-            const itemId = event.target.getAttribute("data-id");
-      const maxInventory = event.target.getAttribute("data-inventory");
-      const newQuantity = parseInt(event.target.value);
-      if (parseInt(input.value, 10) > maxInventory) {
-        event.target.value = maxInventory;
-      }
-      updateCartItem(itemId, newQuantity);
-});
+    ["change", "blur"].forEach((eventType) => {
+      input.addEventListener(eventType, (event) => {
+        const itemId = event.target.getAttribute("data-id");
+        const maxInventory = event.target.getAttribute("data-inventory");
+        const newQuantity = parseInt(event.target.value);
+        if (parseInt(input.value, 10) > maxInventory) {
+          event.target.value = maxInventory;
+        }
+        updateCartItem(itemId, newQuantity);
+      });
     });
   });
 
