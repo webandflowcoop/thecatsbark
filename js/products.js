@@ -1,11 +1,13 @@
+const PROD = window.location.hostname == "thecatsbark.ca";
+const API = PROD ? "https://tcb-backend-05330ab42436.herokuapp.com" : "http://localhost:5001";
+
 let products = [];
 let filteredProducts = [];
 let currentPage = 1;
 
 showSkeletons(8);
 
-// fetch("https://tcb-backend-05330ab42436.herokuapp.com/api/search/products")
-fetch("http://localhost:5001/api/search/products")
+fetch(`${API}/api/search/products`)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((productGroup) => {

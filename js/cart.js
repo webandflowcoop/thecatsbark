@@ -1,3 +1,6 @@
+const PROD = window.location.hostname == "thecatsbark.ca";
+const API = PROD ? "https://tcb-backend-05330ab42436.herokuapp.com" : "http://localhost:5001";
+
 function renderCart() {
   const cartContainer = document.getElementById("cart-container");
 
@@ -139,8 +142,7 @@ function renderCart() {
         return;
       }
 
-      // fetch("https://tcb-backend-05330ab42436.herokuapp.com/api/orders")
-      fetch("http://localhost:5001/api/orders", {
+      fetch(`${API}/api/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(cart),
