@@ -55,7 +55,7 @@ function eventModal() {
   const modal = document.getElementById("event-modal");
   modal.style.display = "flex";
   
-  const closeButton = document.querySelector(".close-btn");
+  const closeButton = modal.querySelector(".close-btn");
 
   closeButton.addEventListener("click", function () {
     modal.style.display = "none";
@@ -75,9 +75,11 @@ function confirmationModal() {
   if (urlParams.has("transactionId")) {
     localStorage.removeItem("cart");
     updateCartCount()
+
     const modal = document.getElementById("thank-you-modal");
 
-    const closeButton = document.querySelector(".close-btn");
+    const closeButton = modal.querySelector(".close-btn");;
+
     closeButton.addEventListener("click", function () {
       modal.style.display = "none";
     });
