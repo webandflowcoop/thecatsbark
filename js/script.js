@@ -51,6 +51,25 @@ function updateCartCount() {
   });
 }
 
+function eventModal() {
+  const modal = document.getElementById("event-modal");
+  modal.style.display = "flex";
+  
+  const closeButton = document.querySelector(".close-btn");
+
+  closeButton.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+}
+
+eventModal();
+
 function confirmationModal() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has("transactionId")) {
