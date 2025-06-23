@@ -68,7 +68,7 @@ function eventModal() {
   });
 }
 
-eventModal();
+//eventModal();
 
 function confirmationModal() {
   const urlParams = new URLSearchParams(window.location.search);
