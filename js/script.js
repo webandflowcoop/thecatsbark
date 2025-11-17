@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.text())
     .then((data) => {
       document.querySelector("header").innerHTML = data;
+
       const menuIcon = document.getElementById("menu-icon");
       const menuItems = document.querySelector(".menu");
 
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       updateActivePageIndicator();
       updateCartCount();
+      eventModal();
       confirmationModal();
     });
 
@@ -52,44 +54,70 @@ function updateCartCount() {
 }
 
 function eventModal() {
-  const modal = document.getElementById("event-modal");
+  const modal = setupModal("event-modal");
+  if (!modal) return;
+
   modal.style.display = "flex";
-  
-  const closeButton = modal.querySelector(".close-btn");
-
-  closeButton.addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+  document.body.style.overflow = "hidden";
 }
-
-//eventModal();
 
 function confirmationModal() {
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has("transactionId")) {
-    localStorage.removeItem("cart");
-    updateCartCount()
+  if (!urlParams.has("transactionId")) return;
 
-    const modal = document.getElementById("thank-you-modal");
+  localStorage.removeItem("cart");
+  updateCartCount();
 
-    const closeButton = modal.querySelector(".close-btn");;
+  const modal = setupModal("thank-you-modal");
+  if (!modal) return;
 
-    closeButton.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-
-    modal.style.display = "flex";
-
-    window.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  }
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
+
+
+function setupModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return null;
+
+  const closeButton = modal.querySelector(".close-btn");
+
+  closeButton.addEventListener("click", () => closeModal(modal));
+
+  const outsideClickHandler = (event) => {
+    if (event.target === modal) closeModal(modal);
+  };
+
+  // reference for cleanup
+  modal._outsideClickHandler = outsideClickHandler;
+  window.addEventListener("click", outsideClickHandler);
+
+  return modal;
+}
+
+
+function closeModal(modal) {
+  if (!modal) return;
+
+  modal.style.display = "none";
+
+  if (modal._outsideClickHandler) {
+    window.removeEventListener("click", modal._outsideClickHandler);
+    delete modal._outsideClickHandler;
+  }
+
+  const modalElements = document.querySelectorAll(".modal, .event-modal");
+
+  const modalArray = Array.from(modalElements);
+
+  let anyOpen = false;
+  for (const m of modalArray) {
+    if (m.style.display === "flex") {
+      anyOpen = true;
+      break;
+    }
+  }
+
+  document.body.style.overflow = anyOpen ? "hidden" : "";
+}
+
