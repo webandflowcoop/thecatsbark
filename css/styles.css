@@ -248,10 +248,6 @@
   margin: 20px;
 }
 
-#thank-you-modal {
-  z-index: 1100;
-}
-
 html {
   scroll-behavior: smooth;
 }
