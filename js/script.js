@@ -55,7 +55,7 @@ function updateCartCount() {
 
 function eventModal() {
   // disable
-  return;
+  // return;
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has("transactionId")) return;
 
